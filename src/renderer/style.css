@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
+#app {
+    width: 100vw;
+    height: 100svh;
+
+    display: grid;
+    grid-gap: 15px;
+    justify-items: center;
+    grid-template-rows: auto max-content;
+
+    padding: 25px;
+    color: rgb(35, 35, 35);
+    background-color: rgb(250, 250, 250);
+}
+
+.horizontal-line {
+    height: 1px;
+    border: none;
+    background-color: rgb(210, 210, 210);
+}
+
+.accounts__list {
+    width: 55%;
+    min-width: max-content;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: repeat(2, max-content) auto;
+
+    padding: 25px;
+    border-radius: 15px;
+    background-color: white;
+
+    box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+}
+
+.list__header {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, max-content);
+}
+
+.list__header_title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.accounts__table {
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: max-content auto;
+}
+
+.table_row {
+    width: 100%;
+    height: max-content;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 60px 220px auto 60px;
+
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid rgb(210, 210, 210);
+
+    position: relative;
+}
+
+.table__header {
+    border: none;
+    background-color: rgb(240, 244, 255);
+}
+
+.account-checkbox {
+    cursor: pointer;
+    accent-color: rgb(58, 0, 255);
+}
+
+.options {
+    display: grid;
+}
+
+.dialog_winodw {
+    top: 0;
+    right: 0;
+    position: absolute;
+
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+
+    display: none;
+    grid-gap: 7px;
+
+    box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+}
+
+.delete-accoutn-btn {
+    color: rgb(146, 28, 28);
+}
+
+.divider {
+    height: max-content;
+
+    width: 55%;
+    min-width: max-content;
+
+    display: grid;
+    grid-gap: 10px;
+
+    padding: 25px;
+    border-radius: 15px;
+    background-color: white;
+
+    box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+}
+
+.message__input {
+    width: 100%;
+
+    padding: 7px;
+    border-radius: 99px;
+    border: 1px solid rgb(210, 210, 210);
+
+    font-size: 14px;
+}
+
+.preview-buttons {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, max-content);
+}
+
+.preview {
+    display: grid;
+    grid-gap: 10px;
+    align-items: center;
+    grid-template-columns: repeat(2, max-content);
+}
+
+.voice-preview {
+    display: none;
+    grid-gap: 10px;
+    align-items: center;
+    grid-template-columns: repeat(2, max-content);
+
+    padding: 10px;
+    border-radius: 15px;
+    background: #e3f2fd;
+}
+
+.voice-preview.active {
+    display: grid;
+}
+
+.voice-preview .filename {
+    font-size: 13px;
+    color: rgb(90, 90, 90);
+}
+
+.voice-preview svg {
+    width: 15px;
+    height: 15px;
+
+    fill: rgb(210, 64, 64);
+}
+
+.buttons {
+    display: grid;
+    grid-gap: 15px;
+    align-items: center;
+    grid-template-columns: repeat(3, max-content);
+}
+
+.svg-icon {
+    cursor: pointer;
+
+    width: 18px;
+    height: 18px;
+
+    fill: rgb(35, 35, 35);
+}
+
+button {
+    cursor: pointer;
+    padding: 9px 15px;
+
+    border: none;
+    border-radius: 99px;
+
+    color: white;
+    background-color: rgb(58, 0, 255);
+
+    font-size: 13px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.horizontal-line {
+    height: 1px;
+    border: none;
+    background-color: rgb(210, 210, 210);
+}

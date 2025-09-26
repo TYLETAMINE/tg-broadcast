@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+test/
+
+# Build outputs
+dist/
+release/
+
+# Other
+.env
+.DS_Store
+*.log

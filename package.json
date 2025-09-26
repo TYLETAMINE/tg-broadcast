@@ -1,0 +1,75 @@
+{
+    "name": "tg-broadcast",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/main.js",
+    "scripts": {
+        "build:main": "webpack --config webpack.main.config.ts",
+        "build:preload": "webpack --config webpack.preload.config.ts",
+        "build:renderer": "webpack --config webpack.renderer.config.ts",
+        "build": "npm run build:main && npm run build:renderer && npm run build:preload",
+        "start": "npm run build && electron ./dist/main.js",
+        "dist:win": "npm run build && electron-builder --win",
+        "dist:mac": "npm run build && electron-builder --mac",
+        "dist:all": "npm run build && electron-builder --win --mac",
+        "publish": "npm run build electron-builder --win --mac -p always"
+    },
+    "build": {
+        "appId": "ru.thynet.broadcast",
+        "productName": "tgBroadcast",
+        "directories": {
+            "output": "release"
+        },
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "TYLETAMINE",
+                "repo": "tg-broadcast"
+            }
+        ],
+        "files": [
+            "dist/**/*"
+        ],
+        "mac": {
+            "category": "public.app-category.utilities",
+            "icon": "assets/icon.png",
+            "target": "dmg"
+        },
+        "win": {
+            "target": "nsis",
+            "icon": "assets/icon.png"
+        },
+        "linux": {
+            "target": "AppImage",
+            "icon": "assets/icon.png"
+        },
+        "dmg": {
+            "format": "ULFO"
+        }
+    },
+    "author": "TYLETAMINE",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/electron": "^1.4.38",
+        "@types/node": "^24.5.2",
+        "copy-webpack-plugin": "^13.0.1",
+        "css-loader": "^7.1.2",
+        "electron": "^37.5.1",
+        "electron-builder": "^26.0.12",
+        "electron-rebuild": "^3.2.9",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^5.6.4",
+        "style-loader": "^4.0.0",
+        "ts-loader": "^9.5.4",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.2",
+        "webpack": "^5.101.3",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.2",
+        "webpack-merge": "^6.0.1"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.2",
+        "telegram": "^2.26.22"
+    }
+}
