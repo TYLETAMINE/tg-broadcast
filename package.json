@@ -1,7 +1,7 @@
 {
     "name": "tg-broadcast",
-    "version": "1.1.1",
-    "description": "",
+    "version": "1.1.0",
+    "description": "A process automation app for Telegram",
     "main": "dist/main/main.js",
     "scripts": {
         "build:main": "tsc --project tsconfig.main.json",
@@ -17,7 +17,7 @@
     },
     "build": {
         "appId": "ru.thynet.broadcast",
-        "productName": "tgBroadcast",
+        "productName": "Broadcast",
         "copyright": "Copyright © 2025 Thy Team Network. All rights reserved.",
         "directories": {
             "output": "release"
@@ -30,7 +30,8 @@
             }
         ],
         "files": [
-            "dist/**/*"
+            "dist/**/*",
+            ".env.keys"
         ],
         "mac": {
             "category": "public.app-category.utilities",
@@ -59,6 +60,7 @@
         "typescript": "^5.9.2"
     },
     "dependencies": {
+        "@dotenvx/dotenvx": "^1.51.0",
         "dotenv": "^17.2.2",
         "telegram": "^2.26.22",
         "vite": "^6.3.6"

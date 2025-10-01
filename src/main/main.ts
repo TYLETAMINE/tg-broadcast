@@ -1,5 +1,4 @@
-import * as dotenv from "dotenv"
-dotenv.config()
+require('@dotenvx/dotenvx').config()
 
 import { AuthManager } from "./telegram/authManager"
 import { AccountManager } from "./telegram/AccountManager"
