@@ -68,7 +68,7 @@ app.whenReady().then(async () => {
         return { success: true }
     })
 
-    if (!app.isPackaged) {
+    if (app.isPackaged) {
         autoUpdater.checkForUpdates()
     }
 
