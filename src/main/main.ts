@@ -18,12 +18,10 @@ const createWindow = () => {
             contextIsolation: true,
             nodeIntegration: false,
             sandbox: true,
-            // preload: path.join(__dirname, 'preload/preload.js')
             preload: path.join(__dirname, '../preload/preload.js')
         }
     })
 
-    // mainWindow.loadFile(path.join(__dirname, './index.html'))
     mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
     // mainWindow.webContents.openDevTools()
 

@@ -7,6 +7,22 @@
     font-family: Montserrat, sans-serif;
 }
 
+:root {
+    --text-color: rgb(35, 35, 35);
+    --bg-color: rgb(250, 250, 250);
+    --block-color: rgb(255, 255, 255);
+    --border-color: rgb(222, 226, 230);
+    --option-block-color: rgb(240, 244, 255);
+}
+
+[data-theme="dark"] {
+    --bg-color: rgb(33, 37, 41);
+    --block-color: rgb(43, 48, 53);
+    --border-color: rgb(73, 80, 87);
+    --text-color: rgb(222, 226, 230);
+    --option-block-color: rgb(74, 81, 100);
+}
+
 #app {
     width: 100vw;
     height: 100svh;
@@ -17,14 +33,14 @@
     grid-template-rows: auto max-content;
 
     padding: 25px;
-    color: rgb(35, 35, 35);
-    background-color: rgb(250, 250, 250);
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 
 .horizontal-line {
     height: 1px;
     border: none;
-    background-color: rgb(210, 210, 210);
+    background-color: var(--border-color);
 }
 
 .accounts__list {
@@ -37,11 +53,7 @@
 
     padding: 25px;
     border-radius: 15px;
-    background-color: white;
-
-    box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    background-color: var(--block-color);
 }
 
 .list__header {
@@ -76,14 +88,14 @@
 
     padding: 10px;
     border-radius: 15px;
-    border: 1px solid rgb(210, 210, 210);
+    border: 1px solid var(--border-color);
 
     position: relative;
 }
 
 .table__header {
     border: none;
-    background-color: rgb(240, 244, 255);
+    background-color: var(--option-block-color);
 }
 
 .account-checkbox {
@@ -95,6 +107,15 @@
     display: grid;
 }
 
+.options svg {
+    cursor: pointer;
+
+    width: 16px;
+    height: 16px;
+
+    fill: var(--text-color);
+}
+
 .dialog_winodw {
     top: 0;
     right: 0;
@@ -102,14 +123,10 @@
 
     padding: 20px;
     border-radius: 15px;
-    background-color: white;
+    background-color: var(--block-color);
 
     display: none;
     grid-gap: 7px;
-
-    box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
 }
 
 .delete-accoutn-btn {
@@ -127,19 +144,16 @@
 
     padding: 25px;
     border-radius: 15px;
-    background-color: white;
-
-    box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(79, 90, 99, 0.15);
+    background-color: var(--block-color);
 }
 
 .message__input {
     width: 100%;
 
-    padding: 7px;
-    border-radius: 99px;
-    border: 1px solid rgb(210, 210, 210);
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: var(--bg-color);
 
     font-size: 14px;
 }
@@ -166,7 +180,7 @@
 
     padding: 10px;
     border-radius: 15px;
-    background: #e3f2fd;
+    background: var(--option-block-color);
 }
 
 .voice-preview.active {
@@ -175,7 +189,7 @@
 
 .voice-preview .filename {
     font-size: 13px;
-    color: rgb(90, 90, 90);
+    color: var(--text-color);
 }
 
 .voice-preview svg {
@@ -192,18 +206,9 @@
     grid-template-columns: repeat(3, max-content);
 }
 
-.svg-icon {
-    cursor: pointer;
-
-    width: 18px;
-    height: 18px;
-
-    fill: rgb(35, 35, 35);
-}
-
 button {
     cursor: pointer;
-    padding: 9px 15px;
+    padding: 10px 16px;
 
     border: none;
     border-radius: 99px;
@@ -214,12 +219,55 @@ button {
     font-size: 13px;
 }
 
-.mb-10 {
-    margin-bottom: 10px;
+.menu__container {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    display: grid;
+    grid-gap: 5px;
 }
 
-.horizontal-line {
-    height: 1px;
-    border: none;
-    background-color: rgb(210, 210, 210);
+.menu-toggle {
+    cursor: pointer;
+
+    width: 24px;
+    height: 24px;
+
+    fill: var(--text-color);
+
+    display: grid;
+    justify-self: end;
+}
+
+.main-menu {
+    padding: 25px;
+
+    display: grid;
+    grid-gap: 15px;
+    justify-content: end;
+
+    border-radius: 15px;
+    background-color: var(--block-color);
+}
+
+.main-menu.hidden {
+    display: none;
+}
+
+.svg-icon {
+    cursor: pointer;
+
+    width: 18px;
+    height: 18px;
+
+    fill: var(--text-color);
+}
+
+.theme-toggle {
+    cursor: pointer;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
 }

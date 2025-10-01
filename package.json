@@ -18,6 +18,7 @@
     "build": {
         "appId": "ru.thynet.broadcast",
         "productName": "tgBroadcast",
+        "copyright": "Copyright © 2025 Thy Team Network. All rights reserved.",
         "directories": {
             "output": "release"
         },
@@ -55,10 +56,7 @@
         "electron": "^37.5.1",
         "electron-builder": "^26.0.12",
         "electron-rebuild": "^3.2.9",
-        "file-loader": "^6.2.0",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.9.2",
-        "webpack-dev-server": "^5.2.2"
+        "typescript": "^5.9.2"
     },
     "dependencies": {
         "dotenv": "^17.2.2",

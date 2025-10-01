@@ -235,6 +235,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     renderAccounts();
+
+    const menuToggle = document.getElementById('menuToggle')!
+    const mainMenu = document.getElementById('mainMenu')!
+
+    menuToggle?.addEventListener('click', (event) => {
+        event.stopPropagation()
+        mainMenu?.classList.toggle('hidden')
+    })
+
+    document.addEventListener('click', (event) => {
+        if (
+            event.target instanceof Element &&
+            !mainMenu.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+            mainMenu.classList.add('hidden')
+        }
+    })
+
+    const themeToggle = document.getElementById('themeToggle')!
+    let currentTheme = 'light'
+
+    const savedTheme = localStorage.getItem('theme') || 'light'
+    applyTheme(savedTheme)
+
+    themeToggle.addEventListener('click', () => {
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light'
+        applyTheme(newTheme)
+        localStorage.setItem('theme', newTheme)
+    })
+
+    function applyTheme(theme: string) {
+        currentTheme = theme
+        document.documentElement.setAttribute('data-theme', theme)
+    }
 });
 
 let currentPage = 1
@@ -271,7 +306,7 @@ async function renderAccounts() {
             </div>
             <p>${groupsText}</p>
             <div class="options">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
                     class="assign-group-btn" data-id="${account.id}">
                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 
                     0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />

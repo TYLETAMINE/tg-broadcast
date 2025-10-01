@@ -15,6 +15,7 @@ export default defineConfig({
             }
         }
     },
+
     define: {
         'process.env.API_ID': JSON.stringify(process.env.API_ID),
         'process.env.API_HASH': JSON.stringify(process.env.API_HASH)
