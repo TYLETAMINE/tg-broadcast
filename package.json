@@ -18,7 +18,7 @@
     "build": {
         "appId": "ru.thynet.broadcast",
         "productName": "Broadcast",
-        "copyright": "Copyright © 2025 Thy Team Network. All rights reserved.",
+        "copyright": "Copyright © 2025 Thy Team Network. \nAll rights reserved.",
         "directories": {
             "output": "release"
         },
@@ -31,7 +31,7 @@
         ],
         "files": [
             "dist/**/*",
-            ".env.keys"
+            ".env"
         ],
         "mac": {
             "category": "public.app-category.utilities",
@@ -60,7 +60,6 @@
         "typescript": "^5.9.2"
     },
     "dependencies": {
-        "@dotenvx/dotenvx": "^1.51.0",
         "dotenv": "^17.2.2",
         "telegram": "^2.26.22",
         "vite": "^6.3.6"

@@ -1,9 +1,14 @@
-require('@dotenvx/dotenvx').config()
-
+import * as path from "path"
+import * as dotenv from "dotenv"
 import { AuthManager } from "./telegram/authManager"
 import { AccountManager } from "./telegram/AccountManager"
 import { app, autoUpdater, BrowserWindow, ipcMain, screen } from "electron"
-import * as path from "path"
+
+const envPath = app.isPackaged
+    ? path.join(app.getAppPath(), '.env')
+    : path.resolve(__dirname, '../../.env')
+
+dotenv.config({ path: envPath })
 
 let mainWindow: BrowserWindow | null = null
 
