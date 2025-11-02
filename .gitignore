@@ -9,4 +9,7 @@ release/
 # Other
 .DS_Store
 *.log
+
+# API
 .env
+.env.local

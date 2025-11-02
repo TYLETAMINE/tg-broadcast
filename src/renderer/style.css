@@ -241,11 +241,10 @@ button {
 }
 
 .main-menu {
-    padding: 25px;
+    padding: 30px;
 
     display: grid;
-    grid-gap: 15px;
-    justify-content: end;
+    grid-gap: 20px;
 
     border-radius: 15px;
     background-color: var(--block-color);
@@ -255,6 +254,10 @@ button {
     display: none;
 }
 
+.menu__item {
+    cursor: pointer;
+}
+
 .svg-icon {
     cursor: pointer;
 
@@ -262,10 +265,6 @@ button {
     height: 18px;
 
     fill: var(--text-color);
-}
-
-.theme-toggle {
-    cursor: pointer;
 }
 
 .mb-10 {

@@ -64,8 +64,6 @@ autoUpdater.on('update-downloaded', () => {
     autoUpdater.quitAndInstall()
 })
 
-
-
 app.whenReady().then(async () => {
     createWindow();
 
@@ -88,9 +86,14 @@ app.whenReady().then(async () => {
         return { success: true }
     })
 
-    if (app.isPackaged) {
-        autoUpdater.checkForUpdates()
-    }
+    ipcMain.handle('check-for-updates', () => {
+        if (app.isPackaged) {
+            autoUpdater.checkForUpdates()
+        } else {
+            console.log('[ DEV ]: Обновления работают только в упакованной версии')
+        }
+    })
+
 
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {
