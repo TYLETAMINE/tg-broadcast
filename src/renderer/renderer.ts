@@ -17,7 +17,6 @@ declare global {
                 voiceData?: { name: string; base64: string },
                 videoData?: { name: string; base64: string }
             ) => Promise<void>
-            checkForUpdates: () => Promise<void>
         };
     }
 }
@@ -271,17 +270,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentTheme = theme
         document.documentElement.setAttribute('data-theme', theme)
     }
-
-    const checkUpdate = document.getElementById('checkUpdate')!
-
-    checkUpdate.addEventListener('click', async () => {
-        try {
-            await window.electronAPI?.checkForUpdates()
-            console.log('Проверка прошла успешно')
-        } catch (error) {
-            console.error('Ошибка обновления:', error)
-        }
-    })
 });
 
 let currentPage = 1

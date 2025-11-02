@@ -38,7 +38,5 @@ contextBridge.exposeInMainWorld('electronAPI', {
 
     broadcastMessage: (message: string, accountIds: string[], voiceData?: { name: string; base64: string }, videoData?: { name: string; base64: string }) => {
         return ipcRenderer.invoke('broadcast-message', { message, accountIds, voiceData, videoData })
-    },
-
-    checkForUpdates: () => ipcRenderer.invoke('check-for-updates')
+    }
 })

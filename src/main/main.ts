@@ -2,7 +2,7 @@ import * as path from "path"
 import * as dotenv from "dotenv"
 import { AuthManager } from "./telegram/authManager"
 import { AccountManager } from "./telegram/AccountManager"
-import { app, autoUpdater, BrowserWindow, ipcMain, screen } from "electron"
+import { app, autoUpdater, BrowserWindow, dialog, ipcMain, screen } from "electron"
 
 const envPath = app.isPackaged
     ? path.join(app.getAppPath(), '.env')
@@ -60,8 +60,29 @@ autoUpdater.on('update-available', () => {
     console.log('Доступно обновление')
 })
 
-autoUpdater.on('update-downloaded', () => {
-    autoUpdater.quitAndInstall()
+// autoUpdater.on('update-downloaded', () => {
+//     autoUpdater.quitAndInstall()
+// })
+
+autoUpdater.on('update-downloaded', (event, releaseName) => {
+    if (!mainWindow || mainWindow.isDestroyed()) return
+
+    const message = `Доступна новая версия ${releaseName}.`
+    const detail = 'Приложение будет перезапущено после установки.'
+
+    dialog.showMessageBox(mainWindow, {
+        type: 'info',
+        buttons: ['Установить', 'Позже'],
+        defaultId: 0,
+        cancelId: 1,
+        title: 'Обновление готово',
+        message: message,
+        detail: detail
+    }).then(({ response }) => {
+        if (response === 0) {
+            setImmediate(() => autoUpdater.quitAndInstall())
+        }
+    })
 })
 
 app.whenReady().then(async () => {
@@ -86,14 +107,11 @@ app.whenReady().then(async () => {
         return { success: true }
     })
 
-    ipcMain.handle('check-for-updates', () => {
-        if (app.isPackaged) {
-            autoUpdater.checkForUpdates()
-        } else {
-            console.log('[ DEV ]: Обновления работают только в упакованной версии')
-        }
-    })
-
+    if (app.isPackaged) {
+        autoUpdater.checkForUpdates()
+    } else {
+        console.log('[ DEV ]: Обновления работают только в упакованной версии')
+    }
 
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {
