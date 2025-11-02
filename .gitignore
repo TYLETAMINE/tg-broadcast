@@ -7,6 +7,6 @@ dist/
 release/
 
 # Other
-.env.keys
 .DS_Store
 *.log
+.env

@@ -18,6 +18,8 @@ const createWindow = () => {
     mainWindow = new BrowserWindow({
         width: width,
         height: height,
+        titleBarStyle: 'hidden',
+
         webPreferences: {
             contextIsolation: true,
             nodeIntegration: false,
@@ -42,13 +44,27 @@ const accountManager = new AccountManager(authManager)
 
 ipcMain.on('prompt-response', (event, data) => { })
 
+autoUpdater.on('checking-for-update', () => {
+    console.log('Начало проверки обновлений')
+})
+
+autoUpdater.on('error', (error) => {
+    console.error('Ошибка при обновлении!', error.message)
+})
+
+autoUpdater.on('update-not-available', () => {
+    console.log('Нет подходящих обновлений')
+})
+
 autoUpdater.on('update-available', () => {
-    console.log('Доступно обновление');
+    console.log('Доступно обновление')
 })
 
 autoUpdater.on('update-downloaded', () => {
     autoUpdater.quitAndInstall()
 })
+
+
 
 app.whenReady().then(async () => {
     createWindow();
